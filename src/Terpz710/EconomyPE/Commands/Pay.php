@@ -36,8 +36,8 @@ class Pay extends Command
                             if ($sender->getName() !== $name) {
                                 if ($args[1] >  0) {
                                     if (Money::getMoneyPlayer($sender) >= $args[1]) {
-                                        Money::addMoney($name, $args[1]);
-                                        Money::removeMoney($sender, $args[1]);
+                                        Money::addMoney($name, (int)$args[1]);
+                                        Money::removeMoney($sender, (int)$args[1]);
                                         $sender->sendMessage(Money::getConfigReplace("pay_msg", [strtolower("{money}"), strtolower("{player}")], [$args[1], $name]));
                                         if ($player instanceof Player) $player->sendMessage(Money::getConfigReplace("pay_msg2", [strtolower("{money}"), strtolower("{player}")], [$args[1], $sender->getName()]));
                                     } else $sender->sendMessage(Money::getConfigReplace("pay_nomoney_msg"));
