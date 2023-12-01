@@ -33,7 +33,7 @@ class RemoveMoney extends Command
                 if (Money::existPlayer($name)) {
                     if (isset($args[1])) {
                         if (is_numeric($args[1])) {
-                            Money::removeMoney($name, $args[1]);
+                            Money::removeMoney($name, intval($args[1]));
                             $sender->sendMessage(Money::getConfigReplace("removemoney_msg", [strtolower("{money}"), strtolower("{player}")], [$args[1], $name]));
                         } else $sender->sendMessage(Money::getConfigReplace("is_numeric"));
                     } else $sender->sendMessage(Money::getConfigReplace("is_numeric"));
