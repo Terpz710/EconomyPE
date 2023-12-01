@@ -37,7 +37,7 @@ addmoney_msg: "{prefix}You just added §a${money} §fto§e {player}§f!"
 
 removemoney: "removemoney:Remove money from a player"
 removemoney_aliases: [takemoney]
-removemoney_msg: "{prefix}You just removed §c${money}§f to §e{player}§f!"
+removemoney_msg: "{prefix}You just removed §c${money}§f from §e{player}§f!"
 
 setmoney: "setmoney:Set a player balance"
 setmoney_aliases: []
