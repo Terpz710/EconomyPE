@@ -1,0 +1,56 @@
+# Made by Terpz710
+# Made for BlueGamesNetwork
+
+# yaml or mysql
+money_save: yaml
+
+mysql-host: 127.0.0.1
+mysql-user: root
+mysql-password: password
+mysql-database: EconomyPE
+
+prefix: "§f[§9EconomyPE§f] "
+no_perm: "{prefix}You don't have permission!"
+no_args_player: "{prefix}You must indicate a player!"
+no_exist_player: "{prefix}The specified player does not exist!"
+is_numeric: "{prefix}You must enter a number!"
+no_my: "{prefix}You cannot do this action on yourself!"
+no_negative_value: "{prefix}You must specify a value greater than 0!"
+
+money_default: 1000
+
+# Commands
+# command: "NAME:DESCRIPTION:PERMISSION"
+# command_aliases: [ ALIASES ]
+
+mymoney: "mymoney:See your current balance"
+mymoney_aliases: [balance, mybalance, money]
+mymoney_msg: "{prefix}You have §a${money}§f!"
+
+seemoney: "seemoney:See another players balance"
+seemoney_aliases: []
+seemoney_msg: "{prefix}The player §e{player}§f currently has §a${money}§f!"
+
+addmoney: "addmoney:Add money to another player (OP Only)"
+addmoney_aliases: []
+addmoney_msg: "{prefix}You just added §a${money} §fto§e {player}§f!"
+
+removemoney: "removemoney:Remove money from a player"
+removemoney_aliases: [takemoney]
+removemoney_msg: "{prefix}You just removed §c${money}§f to §e{player}§f!"
+
+setmoney: "setmoney:Set a player balance"
+setmoney_aliases: []
+setmoney_msg: "{prefix}You have set the money of §e{player} §fto §a${money}§f!"
+
+topmoney: "topmoney:Shows a list of top 10 balances"
+topmoney_aliases: []
+tommoney_num: 10
+topmoney_title: "------ {prefix}------"
+topmoney_msg: "§9#{num}. §e{player} §fwith §9${money}"
+
+pay: "pay:Pay another player"
+pay_aliases: []
+pay_nomoney_msg: "{prefix}You do not have enough money!"
+pay_msg: "{prefix}You sent §a${money} §fto§e {player}§f!"
+pay_msg2: "{prefix}You just received §a${money}§f by §e{player}§f!"
