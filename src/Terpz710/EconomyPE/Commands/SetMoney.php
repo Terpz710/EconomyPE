@@ -34,9 +34,9 @@ class SetMoney extends Command
                     if (isset($args[1])) {
                         if (is_numeric($args[1])) {
                             Money::setMoney($name, intval($args[1])); // Cast to int
-                            $player->sendMessage(Money::getConfigReplace("setmoney_msg", [strtolower("{money}"), strtolower("{player}")], [intval($args[1]), $name])); // Cast to int
+                            $sender->sendMessage(Money::getConfigReplace("setmoney_msg", [strtolower("{money}"), strtolower("{player}")], [intval($args[1]), $name])); // Cast to int
                         } else $sender->sendMessage(Money::getConfigReplace("is_numeric"));
-                    } else $sender->sendMessage(Money::getConfigReplace("is_numeric"));
+                    } else $sender->sendMessage(Money::getConfigReplace("no_args_player"));
                 } else $sender->sendMessage(Money::getConfigReplace("no_exist_player"));
             } else $sender->sendMessage(Money::getConfigReplace("no_args_player"));
         }
