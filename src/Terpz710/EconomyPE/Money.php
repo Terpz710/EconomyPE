@@ -156,9 +156,6 @@ class Money extends PluginBase
         }
     }
 
-    /**
-     * @internal
-     */
     public static function updateScoreHudTags(Player $player): void
     {
     if (class_exists(ScoreHud::class)) {
