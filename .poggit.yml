@@ -5,4 +5,9 @@ branches:
 projects:
   EconomyPE:
     path: ""
+    libs:
+      libasynql:
+        src: poggit/libasynql/libasynql
+        version: ^4.1.1
+        branch: pm5
 ...
