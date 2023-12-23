@@ -15,6 +15,9 @@ use Terpz710\EconomyPE\Money;
 
 class AddMoney extends Command implements PluginOwned
 {
+
+    private $plugin;
+    
     public function __construct(Money $plugin)
     {
         $this->plugin = $plugin;
