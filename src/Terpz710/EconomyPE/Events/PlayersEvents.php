@@ -13,6 +13,8 @@ class PlayersEvents implements Listener
 {
     public function onJoin(PlayerJoinEvent $event)
     {
-        Money::createPlayer($event->getPlayer());
+        $player = $event->getPlayer();
+        Money::createPlayer($player);
+        Money::getInstance()->updateScoreHudTags($player);
     }
 }
