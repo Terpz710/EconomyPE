@@ -11,15 +11,23 @@ use pocketmine\Server;
 
 use Terpz710\EconomyPE\Money;
 
-class RemoveMoney extends Command
+class RemoveMoney extends Command implements PluginOwned
 {
-    public function __construct()
+
+    private $plugin;
+    
+    public function __construct(Money $plugin)
     {
+        $this->plugin = $plugin;
         $command = explode(":", Money::getConfigReplace("removemoney"));
         parent::__construct($command[0]);
         if (isset($command[1])) $this->setDescription($command[1]);
         $this->setAliases(Money::getConfigValue("removemoney_aliases"));
-        $this->setPermission("economype.removemoney");
+        $this->setPermission("economype.cmd.removemoney");
+    }
+
+    public function getOwningPlugin(): Plugin {
+        return $this->plugin;
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
