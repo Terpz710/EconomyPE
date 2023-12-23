@@ -25,7 +25,7 @@ class Seemoney extends Command implements PluginOwned
         parent::__construct($command[0]);
         if (isset($command[1])) $this->setDescription($command[1]);
         $this->setAliases(Money::getConfigValue("seemoney_aliases"));
-        $this->setPermission("economype.seemoney");
+        $this->setPermission("economype.cmd.seemoney");
     }
 
     public function getOwningPlugin(): Plugin {
