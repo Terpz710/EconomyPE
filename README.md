@@ -10,7 +10,7 @@ Everything is configurable through the config yml. Both Json and MySQL are suppo
 
 [ScoreHud](https://poggit.pmmp.io/p/ScoreHud) is supported!
 
-[CustomScore](https://poggit.pmmp.io/p/CustomScore/1.0.1): Tell [Joshet18](https://github.com/Joshet18) to integrate [EconomyPE](https://github.com/Terpz710/EconomyPE) into [CustomScore](https://poggit.pmmp.io/p/CustomScore/1.0.1)
+[CustomScore](https://poggit.pmmp.io/p/CustomScore/1.0.1): Tell [Joshet18](https://github.com/Joshet18) to integrate EconomyPE into CustomScore. 😉
 
 Tags:
 
