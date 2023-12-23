@@ -25,7 +25,7 @@ class Pay extends Command implements PluginOwned
         parent::__construct($command[0]);
         if (isset($command[1])) $this->setDescription($command[1]);
         $this->setAliases(Money::getConfigValue("pay_aliases"));
-        $this->setPermission("economype.pay");
+        $this->setPermission("economype.cmd.pay");
     }
 
     public function getOwningPlugin(): Plugin {
