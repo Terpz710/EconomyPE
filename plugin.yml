@@ -6,24 +6,24 @@ main: Terpz710\EconomyPE\Money
 description: Adds economy support
 
 permissions:
-  economype.pay:
+  economype.cmd.pay:
     description: Allows the user to pay another user.
     default: true
-  economype.mymoney:
+  economype.cmd.mymoney:
     description: Allows the user to see their balance.
     default: true
-  economype.seemoney:
+  economype.cmd.seemoney:
     description: Allows the user to see another users balance.
     default: true
-  economype.addmoney:
-    description: Allows the user to add money to another user balance.
-    default: op
-  economype.removemoney:
-    description: Allows the op-user to remove another user balance.
-    default: op
-  economype.topmoney:
+  economype.cmd.topmoney:
     description: Allows the user to see the top balances.
     default: true
-  economype.setmoney:
+  economype.cmd.setmoney:
     description: Allows the op-user to set another user balance.
+    default: op
+  economype.cmd.addmoney:
+    description: Allows the user to add money to another user balance.
+    default: op
+  economype.cmd.removemoney:
+    description: Allows the op-user to remove another user balance.
     default: op
