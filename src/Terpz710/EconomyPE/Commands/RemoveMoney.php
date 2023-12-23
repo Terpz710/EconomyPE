@@ -6,6 +6,8 @@ namespace Terpz710\EconomyPE\Commands;
 
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
+use pocketmine\plugin\PluginOwned;
+use pocketmine\plugin\Plugin;
 use pocketmine\player\Player;
 use pocketmine\Server;
 
