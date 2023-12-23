@@ -22,7 +22,7 @@ class SetMoney extends Command implements PluginOwned
         parent::__construct($command[0]);
         if (isset($command[1])) $this->setDescription($command[1]);
         $this->setAliases(Money::getConfigValue("setmoney_aliases"));
-        $this->setPermission("economype.setmoney");
+        $this->setPermission("economype.cmd.setmoney");
     }
 
     public function getOwningPlugin(): Plugin {
