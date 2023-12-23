@@ -36,13 +36,13 @@ class Money extends PluginBase
 
         $this->getServer()->getCommandMap()->registerAll("EconomyPECommand",
             [
-                new RemoveMoney(),
-                new AddMoney(),
-                new TopMoney(),
-                new Seemoney(),
-                new SetMoney(),
-                new MyMoney(),
-                new Pay()
+                new RemoveMoney($this),
+                new AddMoney($this),
+                new TopMoney($this),
+                new Seemoney($this),
+                new SetMoney($this),
+                new MyMoney($this),
+                new Pay($this)
             ]
         );
 
