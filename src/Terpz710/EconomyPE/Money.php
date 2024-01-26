@@ -48,7 +48,9 @@ class Money extends PluginBase
         if (self::$type === "mysql") {
             self::getDatabase()->query("CREATE TABLE IF NOT EXISTS user_money(name VARCHAR(255), money FLOAT)");
             self::getDatabase()->close();
-        } else self::$money = new Config($this->getDataFolder() . "Money.json", Config::JSON);
+        } else {
+            self::$money = new Config($this->getDataFolder() . "Money.json", Config::JSON);
+        }
     }
 
     public function onDisable(): void
@@ -62,7 +64,9 @@ class Money extends PluginBase
     {
         if (self::$type === "mysql") {
             return new \MySQLi(self::getInstance()->getConfig()->get("mysql-host"), self::getInstance()->getConfig()->get("mysql-user"), self::getInstance()->getConfig()->get("mysql-password"), self::getInstance()->getConfig()->get("mysql-database"));
-        } else return null;
+        } else {
+            return null;
+        }
     }
 
     public static function getInstance(): Money
@@ -78,14 +82,24 @@ class Money extends PluginBase
 
     public static function hasPermissionPlayer(Player $player, string $perm): bool
     {
-        if (self::getInstance()->getServer()->isOp($player->getName())) return false;
-        if ($player->hasPermission($perm)) return false; else $player->sendMessage(self::getConfigReplace("no_perm"));
-        return true;
+        if (self::getInstance()->getServer()->isOp($player->getName())) {
+            return false;
+        }
+        if ($player->hasPermission($perm)) {
+            return false;
+        } else {
+            $player->sendMessage(self::getConfigReplace("no_perm"));
+            return true;
+        }
     }
 
     public static function getPlayerName($player): string
     {
-        if ($player instanceof Player) return $player->getName(); else return $player;
+        if ($player instanceof Player) {
+            return $player->getName();
+        } else {
+            return $player;
+        }
     }
 
     public static function getConfigValue(string $path): array|int|string|bool
@@ -100,7 +114,11 @@ class Money extends PluginBase
             $money = self::getConfigValue("money_default");
             self::getDatabase()->query("INSERT INTO user_money(name, money) VALUES ('$name', '$money')");
             self::getDatabase()->close();
-        } else if (!self::existPlayer($player)) self::setMoney($player, self::getConfigValue("money_default"));
+        } else {
+            if (!self::existPlayer($player)) {
+                self::setMoney($player, self::getConfigValue("money_default"));
+            }
+        }
     }
 
     public static function existPlayer($player): bool
@@ -110,7 +128,9 @@ class Money extends PluginBase
             $result = self::getDatabase()->query("SELECT * FROM user_money WHERE name='$name'");
             self::getDatabase()->close();
             return $result->num_rows > 0;
-        } else return self::$money->exists(self::getPlayerName($player));
+        } else {
+            return self::$money->exists(self::getPlayerName($player));
+        }
     }
 
     public static function getMoneyPlayer($player): int
@@ -121,8 +141,10 @@ class Money extends PluginBase
             $ret = $money->fetch_array()[0] ?? false;
             $money->free();
             self::getDatabase()->close();
-            return $ret;
-        } else return self::$money->get(self::getPlayerName($player));
+            return ($ret !== false) ? (int)$ret : 0;
+        } else {
+            return self::$money->get(self::getPlayerName($player), 0);
+        }
     }
 
     public static function addMoney($player, int $amount): void
