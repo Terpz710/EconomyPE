@@ -150,13 +150,17 @@ class Money extends PluginBase
     public static function addMoney($player, int $amount): void
     {
         self::setMoney($player, self::getMoneyPlayer($player) + $amount);
-        $player = self::getInstance()->getServer()->getPlayerByPrefix($player);
+        if ($player instanceof Player) {
+            $player = $player->getName();
+        }
     }
 
     public static function removeMoney($player, int $amount): void
     {
         self::setMoney($player, self::getMoneyPlayer($player) - $amount);
-        $player = self::getInstance()->getServer()->getPlayerByPrefix($player);
+        if ($player instanceof Player) {
+            $player = $player->getName();
+        }
     }
 
     public static function setMoney($player, int $amount): void
@@ -168,7 +172,9 @@ class Money extends PluginBase
         } else {
             self::$money->set(self::getPlayerName($player), $amount);
             self::$money->save();
-            $player = self::getInstance()->getServer()->getPlayerByPrefix($player);
+            if ($player instanceof Player) {
+                $player = $player->getName();
+            }
         }
     }
 }
