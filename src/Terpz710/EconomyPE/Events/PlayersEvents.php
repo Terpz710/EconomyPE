@@ -15,6 +15,5 @@ class PlayersEvents implements Listener
     {
         $player = $event->getPlayer();
         Money::createPlayer($player);
-        Money::getInstance()->updateScoreHudTags($player);
     }
 }
