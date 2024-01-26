@@ -17,9 +17,6 @@ use Terpz710\EconomyPE\Commands\SetMoney;
 use Terpz710\EconomyPE\Commands\TopMoney;
 use Terpz710\EconomyPE\Commands\MyMoney;
 use Terpz710\EconomyPE\Commands\Pay;
-use Ifera\ScoreHud\event\PlayerTagsUpdateEvent;
-use Ifera\ScoreHud\scoreboard\ScoreTag;
-use Ifera\ScoreHud\ScoreHud;
 
 class Money extends PluginBase
 {
@@ -132,14 +129,12 @@ class Money extends PluginBase
     {
         self::setMoney($player, self::getMoneyPlayer($player) + $amount);
         $player = self::getInstance()->getServer()->getPlayerByPrefix($player);
-        self::getInstance()->updateScoreHudTags($player);
     }
 
     public static function removeMoney($player, int $amount): void
     {
         self::setMoney($player, self::getMoneyPlayer($player) - $amount);
         $player = self::getInstance()->getServer()->getPlayerByPrefix($player);
-        self::getInstance()->updateScoreHudTags($player);
     }
 
     public static function setMoney($player, int $amount): void
@@ -152,21 +147,6 @@ class Money extends PluginBase
             self::$money->set(self::getPlayerName($player), $amount);
             self::$money->save();
             $player = self::getInstance()->getServer()->getPlayerByPrefix($player);
-            Money::updateScoreHudTags($player);
-        }
-    }
-
-    public static function updateScoreHudTags(Player $player): void
-    {
-    if (class_exists(ScoreHud::class)) {
-        $balance = Money::getMoneyPlayer($player);
-        $ev = new PlayerTagsUpdateEvent(
-            $player,
-            [
-                new ScoreTag("EconomyPE.balance", (string)$balance)
-            ]
-        );
-        $ev->call();
         }
     }
 }
